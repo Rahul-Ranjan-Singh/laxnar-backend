@@ -1,17 +1,38 @@
-const Product = require("../models/productModel");
+import {Product} from '../models/productModel.js';
 
 
 
 
 
-const add_product = async (req, res)=>{
+const add_product = async (downloadURL, res, req)=>{
+
+
+    // try {
+        // const dateTime = giveCurrentDateTime();
+
+        // const storageRef = ref(storage, `files/${req.file.originalname + "       " + dateTime}`);
+
+        // const metadata = {
+        //     contentType: req.file.mimetype,
+        // };
+
+        // Upload the file in the bucket storage
+        // const snapshot = await uploadBytesResumable(storageRef, req.file.buffer, metadata);
+        //by using uploadBytesResumable we can control the progress of uploading like pause, resume, cancel
+
+        // Grab the public url
+        
+    //     console.log('File successfully uploaded.');
+        
+    // } catch (error) {
+    //     return res.status(400).send(error.message)
+    // }
+
     try{
-        console.log("asjkd;")
+        // console.log("asjkd;")
         const {name , description,category, applications, technical_features, advantages} = req.body;
-        var arrImages = [];
-        for(let i = 0; i<req.files.length; i++){
-            arrImages[i]= req.files[i].filename;
-        }
+        var arrImages = [downloadURL];
+        
 
 
         var product = {
@@ -51,7 +72,7 @@ const get_products = async(req, res)=>{
 }
 
 
-module.exports = {
+export default {
     add_product,
     get_products
 }

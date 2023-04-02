@@ -1,7 +1,8 @@
-const express = require("Express");
+// const express = require("Express");
+import express from 'express';
 const app = express();
 app.use(express.json());
 
 
 
-module.exports = app;
+export {app};

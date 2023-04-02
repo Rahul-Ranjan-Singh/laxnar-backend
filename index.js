@@ -1,6 +1,7 @@
-const app = require("./app");
-const dotenv = require("dotenv");
-const connectDatabase = require("./config/database");
+import {app} from './app.js';
+// const dotenv = require("dotenv");
+import dotenv from 'dotenv';
+import {connectDatabase} from './config/database.js';
 //config
 
 dotenv.config({ path: "config/config.env" });
@@ -9,11 +10,11 @@ connectDatabase();
 
 
 //create product route
-const product_routes = require("./routes/ProductRoute");
-app.use('/api/product', product_routes);
+import {product_route} from './routes/ProductRoute.js';
+app.use('/api/product', product_route);
 
 //create category route
-const product_category_routes = require("./routes/ProductCategoryRoute");
+import product_category_routes from './routes/ProductCategoryRoute.js';
 app.use('/api/category', product_category_routes);
 
 app.listen(process.env.PORT, () => {

@@ -1,4 +1,4 @@
-const Category = require("../models/productCategoryModel");
+import Category from '../models/productCategoryModel.js';
 
 const add_category = async (req, res)=>{
     try{
@@ -16,6 +16,6 @@ const add_category = async (req, res)=>{
     }
 }
 
-module.exports = {
+export default {
     add_category
 }

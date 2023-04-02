@@ -1,13 +1,13 @@
-const express = require("express");
+import express from 'express';
 const category_route = express();
 
-const bodyParser = require("body-parser");
+import bodyParser from 'body-parser';
 category_route.use(bodyParser.json());
 category_route.use(bodyParser.urlencoded({extended: true}));
 
 
-const product_category_controller = require("../controllers/productcategoryController");
+import product_category_controller from '../controllers/productcategoryController.js';
 
 category_route.post('/add-category', product_category_controller.add_category);
 
-module.exports = category_route;
+export default category_route;
