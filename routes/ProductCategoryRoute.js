@@ -10,4 +10,6 @@ import product_category_controller from '../controllers/productcategoryControlle
 
 category_route.post('/add-category', product_category_controller.add_category);
 
+category_route.get('/get-category', product_category_controller.get_category);
+
 export default category_route;
