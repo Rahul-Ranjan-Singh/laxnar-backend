@@ -79,6 +79,8 @@ product_route.post('/add-product', upload.single("image"), async (req, res) => {
 product_route.get('/get-products', product_controller.get_products);
 
 
+product_route.get('/get-product/:productId', product_controller.get_single_product)
+
 const giveCurrentDateTime = () => {
     const today = new Date();
     const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

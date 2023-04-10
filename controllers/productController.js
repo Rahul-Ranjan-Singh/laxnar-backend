@@ -71,8 +71,21 @@ const get_products = async(req, res)=>{
     }
 }
 
+const get_single_product = async(req, res)=>{
+    const productId = req.params.productId.toString()
+    if(!productId){
+        res.status(400).send({ success: false, msg: "Wrong Product ID"});
+    }
+    const product = await Product.find({_id: productId})
+    if(!product){
+        res.status(400).send({ success: false, msg: "Unable to Fetch Product from Database"});
+    }
+    res.status(200).send({ success: true, msg: "Product", data: product});
+}
+
 
 export default {
     add_product,
-    get_products
+    get_products,
+    get_single_product
 }
