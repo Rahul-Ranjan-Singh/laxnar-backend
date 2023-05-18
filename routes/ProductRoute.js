@@ -72,7 +72,7 @@ product_route.get("/get-product/:productId", product_controller.get_single_produ
 
 product_route.delete("/delete-product", product_controller.delete_product);
 
-product_route.get("/product-category", product_controller.get_productsByCategory);
+product_route.get("/product-category/:category", product_controller.get_productsByCategory);
 
 const giveCurrentDateTime = () => {
     const today = new Date();

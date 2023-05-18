@@ -94,7 +94,7 @@ const delete_product = async (req, res) => {
 };
 
 const get_productsByCategory = async (req, res) => {
-    const productCategory = req.body.category;
+    const productCategory = req.params.category;
     const productResult = await Product.find({ category: productCategory });
     if (!productResult) {
         res.status(404).send({
