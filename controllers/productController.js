@@ -93,9 +93,25 @@ const delete_product = async (req, res) => {
     }
 };
 
+const get_productsByCategory = async (req, res) => {
+    const productCategory = req.body.category;
+    const productResult = await Product.find({ category: productCategory });
+    if (!productResult) {
+        res.status(404).send({
+            success: false,
+            msg: "Unable to Get Products By Category",
+        });
+    } else {
+        res.status(200).send({
+            data: productResult,
+        });
+    }
+};
+
 export default {
     add_product,
     get_products,
     get_single_product,
     delete_product,
+    get_productsByCategory,
 };
